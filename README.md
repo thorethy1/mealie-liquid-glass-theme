@@ -4,13 +4,15 @@ A dark **Liquid Glass** custom theme for [Mealie](https://github.com/mealie-reci
 
 ## Pics
 
-<img width="1320" height="2524" alt="IMG_1201" src="https://github.com/user-attachments/assets/1f2b45eb-839f-46fd-b011-d235745f20d4" />
-<img width="1320" height="2509" alt="IMG_1200" src="https://github.com/user-attachments/assets/390d925f-13ca-47b7-ba01-bd7c870d3457" />
-<img width="1320" height="2505" alt="IMG_1199" src="https://github.com/user-attachments/assets/4a6f9e96-917b-4ef9-98f8-3b981d37f076" />
-<img width="1320" height="2253" alt="IMG_1198" src="https://github.com/user-attachments/assets/5020f6f8-9625-4907-8a73-27eb3f74b0dc" />
 <img width="1320" height="2250" alt="IMG_1196" src="https://github.com/user-attachments/assets/aa382696-3e49-4473-bc98-b2b6ce14dd1f" />
 
+<img width="1320" height="2253" alt="IMG_1198" src="https://github.com/user-attachments/assets/5020f6f8-9625-4907-8a73-27eb3f74b0dc" />
 
+<img width="1320" height="2505" alt="IMG_1199" src="https://github.com/user-attachments/assets/4a6f9e96-917b-4ef9-98f8-3b981d37f076" />
+
+<img width="1320" height="2509" alt="IMG_1200" src="https://github.com/user-attachments/assets/390d925f-13ca-47b7-ba01-bd7c870d3457" />
+
+<img width="1320" height="2524" alt="IMG_1201" src="https://github.com/user-attachments/assets/1f2b45eb-839f-46fd-b011-d235745f20d4" />
 
 ## Files
 
