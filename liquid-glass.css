@@ -1,0 +1,699 @@
+/* Mealie Liquid Glass Theme — maintained outside the container.
+   Mounted into /opt/mealie/.../frontend/liquid-glass.css and injected at startup. */
+
+:root {
+  --glass-bg: rgba(24, 24, 27, 0.58);
+  --glass-bg-strong: rgba(24, 24, 27, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hot: rgba(248, 113, 113, 0.30);
+  --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.38), 0 2px 10px rgba(0, 0, 0, 0.24);
+  --glass-radius: 22px;
+  --hot-red: #ef4444;
+  --hot-red-soft: #f87171;
+  --deep-bg: #09090b;
+}
+
+html,
+body,
+#__nuxt,
+.v-application {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.20), transparent 34rem),
+    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.16), transparent 30rem),
+    radial-gradient(circle at 55% 100%, rgba(127, 29, 29, 0.22), transparent 34rem),
+    linear-gradient(135deg, #09090b 0%, #0a0a0a 48%, #120809 100%) !important;
+  background-attachment: fixed !important;
+  color: rgba(248, 250, 252, 0.92) !important;
+  isolation: isolate;
+}
+
+/* Keep the red liquid background visible on every route, including recipe detail pages. */
+.v-application::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.20), transparent 34rem),
+    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.16), transparent 30rem),
+    radial-gradient(circle at 55% 100%, rgba(127, 29, 29, 0.22), transparent 34rem),
+    linear-gradient(135deg, #09090b 0%, #0a0a0a 48%, #120809 100%);
+}
+
+.v-application__wrap,
+.v-main,
+.v-navigation-drawer,
+.v-app-bar {
+  position: relative;
+  z-index: 1;
+}
+
+.v-application,
+.v-main,
+.v-main__wrap,
+.v-container,
+main,
+.v-layout {
+  background-color: transparent !important;
+}
+
+.v-main,
+main {
+  min-height: 100vh;
+}
+
+/* Fix Mealie running the light Vuetify theme while we visually skin it dark. */
+.v-theme--light,
+.v-theme--light *:not(.v-icon):not(svg):not(path) {
+  color: rgba(248, 250, 252, 0.90) !important;
+}
+
+.text-black,
+.text-medium-emphasis,
+.text-disabled,
+.v-card-title,
+.v-card-subtitle,
+.v-card-text,
+.v-list-item-title,
+.v-list-item-subtitle,
+.v-label,
+.v-field__input,
+.v-field__input input,
+input,
+textarea,
+legend,
+label,
+p,
+span,
+h1, h2, h3, h4, h5, h6 {
+  color: rgba(248, 250, 252, 0.92) !important;
+}
+
+.text-medium-emphasis,
+.v-card-subtitle,
+.v-list-item-subtitle,
+.v-messages,
+.v-counter,
+::placeholder {
+  color: rgba(226, 232, 240, 0.62) !important;
+  opacity: 1 !important;
+}
+
+/* Liquid glass surfaces */
+.v-card,
+.v-sheet,
+.v-table,
+.v-data-table,
+.v-list,
+.v-menu > .v-overlay__content,
+.v-dialog > .v-overlay__content > .v-card,
+.v-expansion-panels,
+.v-expansion-panel,
+.v-stepper,
+.v-timeline-item__body > .v-card {
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.72), rgba(24, 24, 27, 0.56)) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  backdrop-filter: blur(22px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
+}
+
+.v-card,
+.v-sheet,
+.v-table,
+.v-data-table,
+.v-dialog > .v-overlay__content > .v-card {
+  border-radius: var(--glass-radius) !important;
+  overflow: hidden;
+}
+
+/* Subtle top shine on cards */
+.v-card::before,
+.v-sheet::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), transparent 34%);
+  opacity: 0.85;
+}
+.v-card,
+.v-sheet { position: relative; }
+.v-card > *, .v-sheet > * { position: relative; z-index: 1; }
+
+/* Sidebar / top bars */
+.v-navigation-drawer,
+.v-app-bar,
+header.v-toolbar,
+.v-toolbar {
+  background: rgba(9, 9, 11, 0.72) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  backdrop-filter: blur(26px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(150%) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32) !important;
+}
+
+.v-navigation-drawer .v-list,
+.v-navigation-drawer .v-list-item,
+.v-list-item {
+  background: transparent !important;
+}
+
+.v-navigation-drawer .v-list-item,
+.v-list-item {
+  border-radius: 16px !important;
+  margin: 3px 8px !important;
+  min-height: 48px !important;
+  align-items: center !important;
+  transition: background-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.v-list-item__content {
+  align-self: center !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+  padding-block: 4px !important;
+}
+
+.v-list-item-title,
+.v-list-item-subtitle {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  line-height: 1.25 !important;
+}
+
+/* Profile/settings landing tiles need extra breathing room on mobile. */
+.v-card .v-list,
+.v-sheet .v-list {
+  background: transparent !important;
+}
+
+.v-card .v-list-item,
+.v-sheet .v-list-item {
+  min-height: 72px !important;
+  padding: 12px 14px !important;
+  background: linear-gradient(145deg, rgba(39,39,42,0.58), rgba(24,24,27,0.38)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.16) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.v-list-item:hover,
+.v-list-item--active {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.24), rgba(248, 113, 113, 0.12)) !important;
+  box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.22), 0 10px 28px rgba(220, 38, 38, 0.16) !important;
+}
+
+.v-list-item--active .v-list-item-title,
+.v-list-item--active .v-icon {
+  color: #ff8a8a !important;
+}
+
+/* Buttons: more dimensional, less flat */
+.v-btn:not(.v-btn--variant-text):not(.v-btn--variant-plain) {
+  border-radius: 999px !important;
+  text-transform: none !important;
+  letter-spacing: 0.01em !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255,255,255,0.16) !important;
+}
+
+.v-btn.bg-primary,
+.v-btn.bg-accent,
+.v-btn.bg-secondary,
+.v-btn.bg-success,
+.v-btn[class*="bg-green"],
+.v-btn[class*="bg-red"] {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 58%, #fb7185 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(254, 202, 202, 0.34) !important;
+}
+
+/* Drawer create button: make only substantial drawer actions red, not every tiny icon/text action. */
+.v-navigation-drawer .v-btn:not(.v-btn--icon):not(.v-btn--variant-text):not(.v-btn--variant-plain),
+.v-navigation-drawer .v-btn.bg-secondary,
+.v-navigation-drawer .v-btn--variant-tonal,
+.v-navigation-drawer .v-btn--variant-elevated {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 58%, #fb7185 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(254, 202, 202, 0.34) !important;
+  box-shadow: 0 14px 34px rgba(220, 38, 38, 0.22), inset 0 1px 0 rgba(255,255,255,0.18) !important;
+}
+
+.v-btn.bg-success .v-icon,
+.v-btn.bg-success svg,
+.v-btn.bg-secondary .v-icon,
+.v-btn.bg-secondary svg,
+.v-btn[class*="bg-green"] .v-icon,
+.v-btn[class*="bg-green"] svg,
+.v-navigation-drawer .v-btn:not(.v-btn--variant-text):not(.v-btn--variant-plain) .v-icon,
+.v-navigation-drawer .v-btn:not(.v-btn--variant-text):not(.v-btn--variant-plain) svg {
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+/* Remove the pale grey press/focus outlines from Vuetify controls; keep a subtle red touch feedback. */
+.v-btn,
+.v-list-item,
+.v-selection-control,
+.v-field,
+.v-chip {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.v-btn:focus,
+.v-btn:focus-visible,
+.v-list-item:focus,
+.v-list-item:focus-visible,
+.v-selection-control:focus-within,
+.v-field:focus-within {
+  outline: none !important;
+}
+
+.v-btn__overlay,
+.v-list-item__overlay {
+  background-color: rgba(248, 113, 113, 0.12) !important;
+}
+
+.v-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+/* Text-primary action buttons like Cook Mode: glassy red CTA instead of plain text. */
+.v-btn.v-btn--variant-text.text-primary:not(.v-btn--icon) {
+  min-height: 42px !important;
+  padding-inline: 18px !important;
+  border-radius: 999px !important;
+  background:
+    linear-gradient(135deg, rgba(220, 38, 38, 0.30), rgba(248, 113, 113, 0.16)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.38) !important;
+  color: #fff !important;
+  box-shadow:
+    0 14px 34px rgba(220, 38, 38, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.18) !important;
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+}
+
+.v-btn.v-btn--variant-text.text-primary:not(.v-btn--icon) .v-icon,
+.v-btn.v-btn--variant-text.text-primary:not(.v-btn--icon) svg {
+  color: #fecaca !important;
+  fill: currentColor !important;
+}
+
+.v-btn.v-btn--variant-text.text-primary:not(.v-btn--icon):hover {
+  background:
+    linear-gradient(135deg, rgba(220, 38, 38, 0.46), rgba(248, 113, 113, 0.24)) !important;
+  box-shadow:
+    0 18px 42px rgba(220, 38, 38, 0.26),
+    inset 0 1px 0 rgba(255,255,255,0.24) !important;
+}
+
+/* Icon-only flat buttons (e.g. recipe add-to-shopping-list) must not become white-on-white. */
+.v-btn.v-btn--variant-flat.v-btn--icon,
+.v-btn.v-btn--variant-elevated.v-btn--icon {
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.86), rgba(24, 24, 27, 0.72)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.24) !important;
+  color: #fecaca !important;
+}
+
+.v-btn.v-btn--variant-flat.v-btn--icon .v-icon,
+.v-btn.v-btn--variant-elevated.v-btn--icon .v-icon,
+.v-btn.v-btn--variant-flat.v-btn--icon svg,
+.v-btn.v-btn--variant-elevated.v-btn--icon svg {
+  color: #fecaca !important;
+  fill: currentColor !important;
+}
+
+/* Recipe detail page: keep ingredient/shopping-list panels glassy and readable. */
+.recipe-ingredients,
+.recipe-instructions,
+[class*="ingredient"],
+[class*="shopping"] {
+  color: rgba(248, 250, 252, 0.92) !important;
+}
+
+/* Recipe detail hero/description panel: match the lower liquid-glass recipe sections. */
+.v-card--flat.d-flex.flex-column.justify-center.align-center {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(248, 113, 113, 0.14), transparent 18rem),
+    linear-gradient(145deg, rgba(39, 39, 42, 0.72), rgba(24, 24, 27, 0.56)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.18) !important;
+  box-shadow: var(--glass-shadow) !important;
+  backdrop-filter: blur(22px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
+}
+
+/* Instruction cards are also `.v-card--link`; never inherit overview truncation/clipping. */
+.v-card--link[data-v-322f8870],
+.v-card--link[data-v-322f8870] .v-card-text,
+.v-card--link[data-v-322f8870] p,
+.v-card--link[data-v-322f8870] .safe-markdown,
+.v-card--link[data-v-322f8870] [class*="markdown"] {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  white-space: normal !important;
+}
+
+.v-card--link[data-v-322f8870] {
+  padding-bottom: 8px !important;
+}
+
+/* Mobile recipe overview: descriptions should tease, not fill the whole card. */
+@media (max-width: 700px) {
+  .v-card--link .v-card-subtitle,
+  .v-card--link .v-card-text,
+  .v-card--link:not([data-v-322f8870]) p {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    line-height: 1.28 !important;
+    max-height: calc(1.28em * 2) !important;
+  }
+
+  .v-card--link .v-card-title {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    line-height: 1.22 !important;
+  }
+}
+
+/* Inputs / selects */
+.v-field,
+.v-input,
+.v-select,
+.v-text-field,
+.v-textarea {
+  border-radius: 16px !important;
+}
+
+/* Selection controls: modern glass switches and checkboxes. */
+.v-switch .v-selection-control,
+.v-checkbox .v-selection-control {
+  border-radius: 999px !important;
+}
+
+.v-switch .v-selection-control {
+  display: inline-flex !important;
+  width: auto !important;
+  min-height: 48px !important;
+  padding: 6px 12px 6px 8px !important;
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.72), rgba(24, 24, 27, 0.54)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.22) !important;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+  backdrop-filter: blur(18px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
+}
+
+.v-switch .v-label {
+  color: rgba(248, 250, 252, 0.94) !important;
+  opacity: 1 !important;
+  font-weight: 650 !important;
+  letter-spacing: 0.01em !important;
+  padding-inline-start: 10px !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.42);
+}
+
+.v-switch .v-switch__track {
+  width: 46px !important;
+  height: 24px !important;
+  border-radius: 999px !important;
+  opacity: 1 !important;
+  background: linear-gradient(135deg, rgba(63,63,70,0.92), rgba(39,39,42,0.92)) !important;
+  border: 1px solid rgba(255,255,255,0.16) !important;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.42) !important;
+}
+
+.v-switch .v-selection-control--dirty .v-switch__track,
+.v-switch .v-switch__track.bg-primary {
+  background: linear-gradient(135deg, #991b1b 0%, #dc2626 58%, #fb7185 100%) !important;
+  border-color: rgba(254, 202, 202, 0.40) !important;
+  box-shadow: 0 0 22px rgba(220,38,38,0.28), inset 0 1px 0 rgba(255,255,255,0.22) !important;
+}
+
+.v-switch .v-switch__thumb {
+  width: 20px !important;
+  height: 20px !important;
+  background: radial-gradient(circle at 35% 25%, #fff 0%, #fecaca 38%, #ef4444 100%) !important;
+  border: 1px solid rgba(255,255,255,0.55) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.38), 0 0 14px rgba(248,113,113,0.28) !important;
+}
+
+.v-checkbox .v-selection-control__input {
+  border-radius: 10px !important;
+  color: #fecaca !important;
+  background: linear-gradient(145deg, rgba(39,39,42,0.72), rgba(24,24,27,0.52)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.24) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 8px 18px rgba(0,0,0,0.18) !important;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  flex: 0 0 auto !important;
+}
+
+/* Long user/settings checkbox labels must wrap instead of being clipped on mobile. */
+.v-checkbox .v-selection-control {
+  align-items: flex-start !important;
+  min-height: auto !important;
+  overflow: visible !important;
+  padding-block: 4px !important;
+}
+
+.v-checkbox .v-selection-control__wrapper {
+  flex: 0 0 auto !important;
+  margin-top: 2px !important;
+}
+
+.v-checkbox .v-label {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  line-height: 1.32 !important;
+  min-height: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  padding-inline-start: 8px !important;
+}
+
+.v-checkbox .v-selection-control:hover .v-selection-control__input {
+  transform: scale(1.05);
+  border-color: rgba(248, 113, 113, 0.46) !important;
+  box-shadow: 0 0 0 3px rgba(248,113,113,0.12), 0 10px 24px rgba(0,0,0,0.24) !important;
+}
+
+.v-checkbox:has(input:checked) .v-selection-control__input,
+.v-checkbox .v-selection-control--dirty .v-selection-control__input {
+  background: linear-gradient(135deg, #dc2626, #fb7185) !important;
+  border-color: rgba(254, 202, 202, 0.50) !important;
+  box-shadow: 0 0 0 3px rgba(248,113,113,0.16), 0 10px 26px rgba(220,38,38,0.26), inset 0 1px 0 rgba(255,255,255,0.28) !important;
+}
+
+.v-checkbox:has(input:checked) .v-selection-control__input::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.42);
+}
+
+.v-checkbox:has(input:checked) .v-selection-control__input svg {
+  opacity: 0 !important;
+}
+
+.v-checkbox .v-icon,
+.v-checkbox svg {
+  color: #fecaca !important;
+  fill: currentColor !important;
+}
+
+.v-checkbox .v-selection-control--dirty .v-icon,
+.v-checkbox .v-selection-control--dirty svg {
+  color: #fff !important;
+  fill: currentColor !important;
+}
+
+.v-field {
+  background: rgba(24, 24, 27, 0.52) !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  overflow: visible !important;
+}
+
+.v-field__field,
+.v-field__input,
+.v-field__outline,
+.v-input__control {
+  overflow: visible !important;
+}
+
+.v-field__input {
+  align-items: center !important;
+  min-height: 52px !important;
+  padding-top: 10px !important;
+  padding-bottom: 8px !important;
+}
+
+.v-field-label,
+.v-field-label--floating {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+}
+
+.v-field--focused {
+  border-color: rgba(248, 113, 113, 0.42) !important;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.13), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+/* Recipe images/cards: softer, premium feel */
+.v-img,
+img {
+  border-radius: 18px;
+}
+
+.v-card .v-img:first-child,
+.v-card img:first-child {
+  filter: saturate(1.08) contrast(1.03);
+}
+
+/* Recipe start page thumbnails: keep photos centered and fully clipped inside the glass cards. */
+.v-card--link .v-img {
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.78), rgba(24, 24, 27, 0.60)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08) !important;
+}
+
+.v-card--link .v-img__img,
+.v-card--link .v-img__img--cover,
+.v-card--link img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+@media (max-width: 700px) {
+  /* Mobile cards use a horizontal list layout. Make the photo a centered, closed thumbnail frame. */
+  .v-card--link .v-list-item {
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .v-card--link .v-list-item__prepend,
+  .v-card--link .v-list-item__prepend > div {
+    align-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  .v-card--link .v-img,
+  .v-card--link .icon-slot {
+    width: 118px !important;
+    height: 118px !important;
+    min-width: 118px !important;
+    min-height: 118px !important;
+    max-width: 118px !important;
+    max-height: 118px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    align-self: center !important;
+    flex: 0 0 118px !important;
+  }
+
+  .v-card--link .icon-slot {
+    display: grid !important;
+    place-items: center !important;
+    background: linear-gradient(145deg, rgba(39, 39, 42, 0.78), rgba(24, 24, 27, 0.60)) !important;
+    border: 1px solid rgba(248, 113, 113, 0.14) !important;
+  }
+
+  .v-card--link .icon-slot .icon-position {
+    margin: 0 !important;
+    width: 86px !important;
+    height: 86px !important;
+    font-size: 86px !important;
+  }
+
+  .v-card--link .v-img__img,
+  .v-card--link .v-img__img--cover,
+  .v-card--link img {
+    object-position: center center !important;
+  }
+}
+
+/* Tables and dividers */
+.v-divider,
+hr {
+  border-color: rgba(255,255,255,0.10) !important;
+}
+
+.v-table tbody tr:hover,
+.v-data-table tbody tr:hover {
+  background: rgba(248, 113, 113, 0.08) !important;
+}
+
+/* Chips/badges */
+.v-chip {
+  border-radius: 999px !important;
+  background: rgba(248, 113, 113, 0.14) !important;
+  border: 1px solid rgba(248, 113, 113, 0.20) !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+/* Scrollbar polish */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(248, 113, 113, 0.55) rgba(24, 24, 27, 0.40);
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(24, 24, 27, 0.40); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ef4444, #991b1b);
+  border-radius: 999px;
+  border: 2px solid rgba(9, 9, 11, 0.85);
+}
+
+/* Make overlays feel like frosted glass too */
+.v-overlay__scrim {
+  background: rgba(0, 0, 0, 0.46) !important;
+  backdrop-filter: blur(4px) !important;
+}

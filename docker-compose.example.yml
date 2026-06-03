@@ -1,0 +1,20 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.17.0
+    container_name: mealie
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+      - THEME_LIGHT_PRIMARY=DC2626
+      - THEME_LIGHT_ACCENT=EF4444
+      - THEME_LIGHT_SECONDARY=1F2937
+      - THEME_DARK_PRIMARY=DC2626
+      - THEME_DARK_ACCENT=F87171
+      - THEME_DARK_SECONDARY=030712
+    entrypoint: ["/theme/entrypoint-liquid-glass.sh"]
+    volumes:
+      - ./data:/app/data
+      - ./theme/liquid-glass.css:/opt/mealie/lib/python3.12/site-packages/mealie/frontend/liquid-glass.css:ro
+      - ./theme/entrypoint-liquid-glass.sh:/theme/entrypoint-liquid-glass.sh:ro
+    ports:
+      - "9000:9000"
