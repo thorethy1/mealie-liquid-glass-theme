@@ -1,1 +1,1 @@
-# mealie-liquid-glas-theme
+# mealie-liquid-glass-theme
