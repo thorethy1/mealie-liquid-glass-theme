@@ -19,10 +19,10 @@ body,
 .v-application {
   min-height: 100%;
   background:
-    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.20), transparent 34rem),
-    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.16), transparent 30rem),
-    radial-gradient(ellipse at 50% 100%, rgba(185, 28, 28, 0.34), rgba(127, 29, 29, 0.22) 38%, transparent 76%),
-    linear-gradient(180deg, #09090b 0%, #0a0a0a 42%, #120809 76%, #1a0708 100%) !important;
+    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.28), transparent 34rem),
+    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.22), transparent 30rem),
+    radial-gradient(ellipse at 50% 100%, rgba(185, 28, 28, 0.42), rgba(127, 29, 29, 0.32) 42%, transparent 78%),
+    linear-gradient(180deg, #09090b 0%, #080708 38%, #140a0b 72%, #220a0a 100%) !important;
   background-attachment: fixed !important;
   color: rgba(248, 250, 252, 0.92) !important;
   isolation: isolate;
@@ -93,9 +93,9 @@ main,
    container so the red sunset continues to the actual page end, not just 100vh. */
 .v-container.fill-height.bg-off-white {
   background:
-    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.18), transparent 34rem),
-    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.14), transparent 30rem),
-    linear-gradient(180deg, #09090b 0%, #10090a 42%, #180707 74%, #26090a 100%) !important;
+    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.22), transparent 34rem),
+    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.18), transparent 30rem),
+    linear-gradient(180deg, #09090b 0%, #080708 38%, #140a0b 72%, #220a0a 100%) !important;
   background-attachment: scroll !important;
   background-size: 100% 100% !important;
 }
