@@ -64,7 +64,7 @@ THEME_DARK_ERROR=FB7185
 `entrypoint-liquid-glass.sh` injects:
 
 ```html
-<link rel="stylesheet" href="/liquid-glass.css?v=20260603-16">
+<link rel="stylesheet" href="/liquid-glass.css?v=20260603-20">
 ```
 
 When you change the CSS, bump the `?v=` suffix in the script to force browsers to reload the stylesheet.

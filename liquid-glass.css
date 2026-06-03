@@ -21,11 +21,21 @@ body,
   background:
     radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.20), transparent 34rem),
     radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.16), transparent 30rem),
-    radial-gradient(circle at 55% 100%, rgba(127, 29, 29, 0.22), transparent 34rem),
-    linear-gradient(135deg, #09090b 0%, #0a0a0a 48%, #120809 100%) !important;
+    radial-gradient(ellipse at 50% 100%, rgba(185, 28, 28, 0.34), rgba(127, 29, 29, 0.22) 38%, transparent 76%),
+    linear-gradient(180deg, #09090b 0%, #0a0a0a 42%, #120809 76%, #1a0708 100%) !important;
   background-attachment: fixed !important;
   color: rgba(248, 250, 252, 0.92) !important;
   isolation: isolate;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: #09090b !important;
+}
+
+body {
+  margin: 0;
 }
 
 /* Keep the red liquid background visible on every route, including recipe detail pages. */
@@ -38,8 +48,8 @@ body,
   background:
     radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.20), transparent 34rem),
     radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.16), transparent 30rem),
-    radial-gradient(circle at 55% 100%, rgba(127, 29, 29, 0.22), transparent 34rem),
-    linear-gradient(135deg, #09090b 0%, #0a0a0a 48%, #120809 100%);
+    radial-gradient(ellipse at 50% 100%, rgba(185, 28, 28, 0.34), rgba(127, 29, 29, 0.22) 38%, transparent 76%),
+    linear-gradient(180deg, #09090b 0%, #0a0a0a 42%, #120809 76%, #1a0708 100%);
 }
 
 .v-application__wrap,
@@ -50,13 +60,44 @@ body,
   z-index: 1;
 }
 
+.v-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(127, 29, 29, 0.08) 44%, rgba(185, 28, 28, 0.18) 100%);
+}
+
+.v-main > * {
+  position: relative;
+  z-index: 1;
+}
+
 .v-application,
 .v-main,
 .v-main__wrap,
 .v-container,
 main,
-.v-layout {
+.v-layout,
+.bg-off-white,
+.bg-grey-lighten-5,
+.bg-white {
+  background: transparent !important;
   background-color: transparent !important;
+}
+
+/* Login/blank-page containers can be taller than the viewport; paint the full
+   container so the red sunset continues to the actual page end, not just 100vh. */
+.v-container.fill-height.bg-off-white {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(239, 68, 68, 0.18), transparent 34rem),
+    radial-gradient(circle at 88% 20%, rgba(244, 63, 94, 0.14), transparent 30rem),
+    linear-gradient(180deg, #09090b 0%, #10090a 42%, #180707 74%, #26090a 100%) !important;
+  background-attachment: scroll !important;
+  background-size: 100% 100% !important;
 }
 
 .v-main,
@@ -95,11 +136,50 @@ h1, h2, h3, h4, h5, h6 {
 .v-card-subtitle,
 .v-list-item-subtitle,
 .v-messages,
+.v-label,
 .v-counter,
+.v-field__input::placeholder,
 ::placeholder {
-  color: rgba(226, 232, 240, 0.62) !important;
+  color: rgba(226, 232, 240, 0.70) !important;
   opacity: 1 !important;
 }
+
+/* First-run/login alerts: Mealie marks the default-credential banner as bg-info,
+   which otherwise stays light blue and breaks the dark liquid-glass look. */
+.v-alert,
+.v-alert.bg-info,
+.v-alert[class*="bg-info"] {
+  background: linear-gradient(145deg, rgba(39, 39, 42, 0.82), rgba(24, 24, 27, 0.68)) !important;
+  border: 1px solid rgba(248, 113, 113, 0.24) !important;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  color: rgba(248, 250, 252, 0.94) !important;
+  backdrop-filter: blur(22px) saturate(145%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(145%) !important;
+}
+
+.v-alert .v-alert__content,
+.v-alert p,
+.v-alert strong {
+  color: rgba(248, 250, 252, 0.94) !important;
+}
+
+.v-alert .v-btn,
+.v-alert button {
+  background: rgba(239, 68, 68, 0.16) !important;
+  border: 1px solid rgba(248, 113, 113, 0.26) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  margin-inline: 4px !important;
+  vertical-align: middle !important;
+}
+
+.v-alert .v-btn:hover,
+.v-alert button:hover {
+  background: rgba(239, 68, 68, 0.28) !important;
+}
+
 
 /* Liquid glass surfaces */
 .v-card,
