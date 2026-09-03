@@ -1,15 +1,6 @@
 #!/bin/sh
+# Thin wrapper that hands off to the Python injector.
+# The Python script does the actual work (auto-detect frontend dir,
+# md5-based cache busting, HTML patching) so it stays maintainable.
 set -eu
-
-FRONTEND_DIR="/opt/mealie/lib/python3.12/site-packages/mealie/frontend"
-CSS_LINK='<link rel="stylesheet" href="/liquid-glass.css?v=20260603-21">'
-
-if [ -d "$FRONTEND_DIR" ]; then
-  find "$FRONTEND_DIR" -type f -name '*.html' | while read -r HTML; do
-    # Remove old injected cache-busted link if present, then add the current one.
-    sed -i 's#<link rel="stylesheet" href="/liquid-glass.css?v=[^"]*">##g' "$HTML"
-    sed -i "s#</head>#$CSS_LINK</head>#" "$HTML"
-  done
-fi
-
-exec /app/run.sh "$@"
+exec /usr/bin/env python3 "$(dirname "$0")/entrypoint-liquid-glass.py" "$@"

@@ -1,10 +1,11 @@
 services:
   mealie:
-    image: ghcr.io/mealie-recipes/mealie:v3.17.0
+    image: ghcr.io/mealie-recipes/mealie:latest
     container_name: mealie
     restart: unless-stopped
     environment:
       - TZ=Europe/Berlin
+      # Optional: align Vuetify's runtime colors with the theme
       - THEME_LIGHT_PRIMARY=DC2626
       - THEME_LIGHT_ACCENT=EF4444
       - THEME_LIGHT_SECONDARY=1F2937
@@ -14,7 +15,8 @@ services:
     entrypoint: ["/theme/entrypoint-liquid-glass.sh"]
     volumes:
       - ./data:/app/data
-      - ./theme/liquid-glass.css:/opt/mealie/lib/python3.12/site-packages/mealie/frontend/liquid-glass.css:ro
+      - ./theme/liquid-glass.css:/theme/liquid-glass.css:ro
       - ./theme/entrypoint-liquid-glass.sh:/theme/entrypoint-liquid-glass.sh:ro
+      - ./theme/entrypoint-liquid-glass.py:/theme/entrypoint-liquid-glass.py:ro
     ports:
       - "9000:9000"
