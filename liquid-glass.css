@@ -794,3 +794,132 @@ hr {
 }
 
 /* tweak */
+
+/* Keep card overlays out of the layout and off interactive content. */
+.v-card > .v-card__overlay,
+.v-card > .v-card__underlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Compact recipe cards also appear in desktop timelines and meal plans. */
+div[style*="height"]:has(> .v-card.mx-auto > .v-list-item) {
+  height: auto !important;
+}
+.v-card.mx-auto:has(> .v-list-item) {
+  height: auto !important;
+  min-height: 150px;
+}
+.v-card.mx-auto > .v-list-item {
+  display: flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 150px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.v-card.mx-auto > .v-list-item > .v-list-item__content {
+  flex: 1 1 0;
+  min-width: 0 !important;
+}
+
+/* Timeline: one event surface, with quiet dates and markers. */
+.v-sheet:has(> div > .v-row.mb-0.mt-3.mx-7) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible;
+}
+.v-sheet:has(> div > .v-row.mb-0.mt-3.mx-7)::before {
+  display: none;
+}
+.v-sheet:has(> div > .v-row.mb-0.mt-3.mx-7) > div > .text-center .v-progress-circular,
+.v-sheet:has(> div > .v-row.mb-0.mt-3.mx-7) > div > .text-center .v-progress-circular .v-icon {
+  color: #f87171 !important;
+}
+#timeline-container .v-timeline-item__opposite .v-chip,
+#timeline-container .v-timeline-item__body > .v-card > .v-card-title .v-chip {
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#timeline-container .v-timeline-item__opposite .v-chip__underlay,
+#timeline-container .v-timeline-item__opposite .v-chip__overlay,
+#timeline-container .v-timeline-item__body > .v-card > .v-card-title .v-chip__underlay,
+#timeline-container .v-timeline-item__body > .v-card > .v-card-title .v-chip__overlay {
+  display: none;
+}
+#timeline-container .v-timeline-item__opposite .v-chip__content,
+#timeline-container .v-timeline-item__body > .v-card > .v-card-title .v-chip__content {
+  color: rgba(226, 232, 240, 0.85) !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+#timeline-container .v-timeline-item__opposite .v-chip .v-icon,
+#timeline-container .v-timeline-item__body > .v-card > .v-card-title .v-chip .v-icon {
+  color: #f87171 !important;
+  font-size: 16px !important;
+  margin-inline-end: 6px !important;
+}
+#timeline-container .v-timeline-divider__dot {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#timeline-container .v-timeline-divider__inner-dot {
+  width: 10px !important;
+  height: 10px !important;
+  background: #f87171 !important;
+  box-shadow: none !important;
+}
+#timeline-container .v-timeline-divider__inner-dot .v-icon {
+  visibility: hidden;
+}
+#timeline-container .v-timeline-item__body > .v-card {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+#timeline-container .v-timeline-item__body .v-card.flat {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#timeline-container .v-timeline-item__body .v-card.flat::before {
+  display: none;
+}
+#timeline-container .v-timeline-item__body .v-card.flat:focus-visible {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+@media (max-width: 960px) {
+  #timeline-container .v-timeline-item__body .v-card.flat:has(> .v-img.rounded-sm) {
+    display: grid;
+    grid-template-columns: 118px minmax(0, 1fr);
+    align-items: center;
+  }
+  /* Keep Vuetify's loader from occupying the image or content grid cell. */
+  #timeline-container .v-timeline-item__body .v-card.flat:has(> .v-img.rounded-sm) > .v-card__loader {
+    position: absolute;
+  }
+  #timeline-container .v-timeline-item__body .v-card.flat > .v-img.rounded-sm {
+    width: 118px !important;
+    height: 118px !important;
+    min-height: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+  }
+}
