@@ -794,3 +794,63 @@ hr {
 }
 
 /* tweak */
+
+/* Organizer sections: plain letter headings and readable compact entries. */
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) {
+  margin-block: 20px !important;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-card.pb-2 {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-card.pb-2::before {
+  display: none;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-card.pb-2 > .v-card-title {
+  color: var(--fg-muted) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border {
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 8px !important;
+  background: rgba(24, 24, 27, 0.45) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border > .v-card__overlay,
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border > .v-card__underlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border:hover {
+  background: rgba(248, 113, 113, 0.08) !important;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border:focus-visible {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border .v-card-actions {
+  min-height: 52px;
+  padding: 8px 12px;
+  gap: 8px;
+}
+section:has(> .v-card.pb-2 + .v-row > .v-col > .v-card.left-border) > .v-row > .v-col > .v-card.left-border .v-card-title {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  font-size: 1rem !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere;
+  text-overflow: clip !important;
+}
