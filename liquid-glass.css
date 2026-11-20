@@ -794,3 +794,86 @@ hr {
 }
 
 /* tweak */
+
+/* Keep the compact header search inside the bar and away from Logout. */
+.v-app-bar .v-responsive:has(.v-text-field) {
+  align-self: center;
+  margin-inline: 8px 12px;
+}
+.v-app-bar .v-text-field {
+  --v-input-control-height: 36px;
+  margin-top: 0 !important;
+}
+.v-app-bar .v-text-field .v-field__input {
+  min-height: 36px !important;
+  padding-block: 0 !important;
+}
+.v-app-bar .v-text-field .v-input__details {
+  display: none;
+}
+
+/* The planner's range and mode controls should not look like pills. */
+.range-nav .v-btn:not(.v-btn--icon) {
+  border-radius: 8px !important;
+}
+.range-nav + .v-btn-toggle {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.range-nav + .v-btn-toggle .v-btn {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.range-nav + .v-btn-toggle .v-btn__overlay {
+  border-radius: 0;
+}
+.range-nav + .v-btn-toggle .v-btn--active {
+  background: rgba(248, 113, 113, 0.18) !important;
+}
+.col-borders > .v-card.rounded-sm {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.col-borders.week-section {
+  background: transparent !important;
+}
+
+/* RecipeChips is shared by tags, categories, and tools. */
+.v-chip.v-chip--label.mr-1.mt-1 {
+  height: auto !important;
+  max-width: 100%;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-chip.v-chip--label.mr-1.mt-1 .v-chip__content {
+  color: var(--fg-muted) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+}
+.v-chip.v-chip--label.mr-1.mt-1:hover .v-chip__content,
+.v-chip.v-chip--label.mr-1.mt-1:focus-visible .v-chip__content {
+  color: var(--fg-strong) !important;
+  text-decoration: underline;
+}
+.recipe-card-tags {
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+  gap: 4px 12px !important;
+}
+.recipe-card-tags .v-chip {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.v-card .flex-nowrap:has(> div > .v-chip.v-chip--label.mr-1.mt-1) {
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+  white-space: normal !important;
+}
