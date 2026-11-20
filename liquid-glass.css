@@ -339,6 +339,11 @@ header.v-toolbar,
   box-shadow: 0 14px 34px rgba(220, 38, 38, 0.22), inset 0 1px 0 rgba(255,255,255,0.18) !important;
 }
 
+/* Keep the Create button clear of the navigation list. */
+.v-navigation-drawer__content > .v-btn.mt-3 {
+  margin-bottom: 16px !important;
+}
+
 .v-btn.bg-success .v-icon,
 .v-btn.bg-success svg,
 .v-btn.bg-secondary .v-icon,
