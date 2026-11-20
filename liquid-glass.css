@@ -794,3 +794,164 @@ hr {
 }
 
 /* tweak */
+
+/* Flat sidebar navigation; reserve the stronger treatment for Create. */
+.v-navigation-drawer .v-list {
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-navigation-drawer__content > .v-list + .v-divider {
+  margin-top: 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.14) !important;
+  opacity: 1;
+}
+.v-navigation-drawer .v-list .v-list-item {
+  border-radius: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.v-navigation-drawer .v-list .v-list-item:hover,
+.v-navigation-drawer .v-list .v-list-item:focus-visible {
+  background: rgba(248, 113, 113, 0.07) !important;
+}
+.v-navigation-drawer .v-list .v-list-item--active {
+  background: rgba(248, 113, 113, 0.07) !important;
+  box-shadow: inset 3px 0 0 #f87171 !important;
+}
+.v-navigation-drawer .v-list .v-list-item:focus-visible {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+.v-navigation-drawer .v-list-group__items .v-list-item {
+  margin-left: 24px !important;
+}
+
+/* Menu lists use one surface and compact rows, not a card per item. */
+.v-menu > .v-overlay__content {
+  max-width: calc(100vw - 16px) !important;
+}
+.v-menu > .v-overlay__content:has(> .v-card),
+.v-menu > .v-overlay__content:has(> .v-list) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-menu > .v-overlay__content > .v-card,
+.v-menu > .v-overlay__content > .v-list {
+  border-radius: 8px !important;
+}
+.v-menu > .v-overlay__content > .v-card {
+  max-width: 100% !important;
+}
+.v-menu > .v-overlay__content > .v-card > .v-list {
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-menu > .v-overlay__content .v-card--variant-text:has(.v-virtual-scroll) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-menu > .v-overlay__content .v-card--variant-text:has(.v-virtual-scroll)::before {
+  display: none;
+}
+.v-menu > .v-overlay__content .v-list-item {
+  min-height: 48px !important;
+  margin: 0 !important;
+  padding: 8px 16px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.v-menu > .v-overlay__content .v-list-item:hover,
+.v-menu > .v-overlay__content .v-list-item:focus-visible {
+  background: rgba(248, 113, 113, 0.08) !important;
+}
+.v-menu > .v-overlay__content .v-list-item--active {
+  background: rgba(248, 113, 113, 0.08) !important;
+  box-shadow: inset 3px 0 0 #f87171 !important;
+}
+.v-menu > .v-overlay__content .v-list-item:focus-visible {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+.v-menu > .v-overlay__content .v-btn:not(.v-btn--icon),
+.search-row .v-btn:not(.v-btn--icon) {
+  border-radius: 8px !important;
+}
+.v-menu > .v-overlay__content .v-btn-toggle {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+.v-menu > .v-overlay__content .v-btn-toggle .v-btn {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.v-menu > .v-overlay__content .v-btn-toggle .v-btn__overlay {
+  border-radius: 0;
+}
+.v-menu > .v-overlay__content .v-btn-toggle .v-btn--active {
+  background: rgba(248, 113, 113, 0.18) !important;
+}
+.v-menu > .v-overlay__content .v-switch .v-selection-control {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-menu > .v-overlay__content .v-switch .v-label {
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+.v-menu > .v-overlay__content .v-field--variant-underlined {
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 6px !important;
+  background: rgba(0, 0, 0, 0.18) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  --v-field-padding-start: 12px;
+  --v-field-padding-end: 12px;
+}
+.v-menu > .v-overlay__content .v-field--variant-underlined .v-field__input {
+  min-height: 56px !important;
+  padding-top: 22px !important;
+  padding-bottom: 6px !important;
+  padding-inline: 12px !important;
+}
+.v-menu > .v-overlay__content .v-field--variant-underlined .v-field-label--floating {
+  top: 4px !important;
+  inset-inline-start: 12px !important;
+  transform: none !important;
+  font-size: 12px !important;
+}
+.v-menu > .v-overlay__content .v-field--variant-underlined .v-field__outline::before,
+.v-menu > .v-overlay__content .v-field--variant-underlined .v-field__outline::after {
+  display: none;
+}
+.v-menu > .v-overlay__content .v-field--variant-underlined.v-field--focused {
+  border-color: rgba(248, 113, 113, 0.65) !important;
+}
+
+/* Vuetify card overlays must not take up space in the card layout. */
+.v-card > .v-card__overlay,
+.v-card > .v-card__underlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
