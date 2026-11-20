@@ -553,19 +553,9 @@ header.v-toolbar,
   box-shadow: 0 6px 16px rgba(0,0,0,0.38), 0 0 14px rgba(248,113,113,0.28) !important;
 }
 
-.v-checkbox .v-selection-control__input {
-  border-radius: 10px !important;
-  color: #fecaca !important;
-  background: linear-gradient(145deg, rgba(39,39,42,0.72), rgba(24,24,27,0.52)) !important;
-  border: 1px solid rgba(248, 113, 113, 0.24) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 8px 18px rgba(0,0,0,0.18) !important;
-  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-  flex: 0 0 auto !important;
-}
-
-/* Long user/settings checkbox labels must wrap instead of being clipped on mobile. */
+/* Align checkbox labels while keeping long labels readable on mobile. */
 .v-checkbox .v-selection-control {
-  align-items: flex-start !important;
+  align-items: center !important;
   min-height: auto !important;
   overflow: visible !important;
   padding-block: 4px !important;
@@ -573,7 +563,6 @@ header.v-toolbar,
 
 .v-checkbox .v-selection-control__wrapper {
   flex: 0 0 auto !important;
-  margin-top: 2px !important;
 }
 
 .v-checkbox .v-label {
@@ -585,48 +574,32 @@ header.v-toolbar,
   height: auto !important;
   opacity: 1 !important;
   padding-inline-start: 8px !important;
+  user-select: none;
 }
 
-.v-checkbox .v-selection-control:hover .v-selection-control__input {
-  transform: scale(1.05);
-  border-color: rgba(248, 113, 113, 0.46) !important;
-  box-shadow: 0 0 0 3px rgba(248,113,113,0.12), 0 10px 24px rgba(0,0,0,0.24) !important;
+.v-checkbox:not(.v-input--disabled) .v-label {
+  cursor: pointer;
 }
 
-.v-checkbox:has(input:checked) .v-selection-control__input,
-.v-checkbox .v-selection-control--dirty .v-selection-control__input {
-  background: linear-gradient(135deg, #dc2626, #fb7185) !important;
-  border-color: rgba(254, 202, 202, 0.50) !important;
-  box-shadow: 0 0 0 3px rgba(248,113,113,0.16), 0 10px 26px rgba(220,38,38,0.26), inset 0 1px 0 rgba(255,255,255,0.28) !important;
-}
-
-.v-checkbox:has(input:checked) .v-selection-control__input::after {
-  content: "✓";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1;
-  text-shadow: 0 1px 5px rgba(0,0,0,0.42);
-}
-
-.v-checkbox:has(input:checked) .v-selection-control__input svg {
-  opacity: 0 !important;
+/* Use Vuetify's own checkbox icon, rather than a second decorative box. */
+.v-checkbox .v-selection-control__input {
+  flex: 0 0 auto !important;
 }
 
 .v-checkbox .v-icon,
 .v-checkbox svg {
-  color: #fecaca !important;
+  color: rgba(226, 232, 240, 0.75) !important;
   fill: currentColor !important;
 }
 
 .v-checkbox .v-selection-control--dirty .v-icon,
 .v-checkbox .v-selection-control--dirty svg {
-  color: #fff !important;
-  fill: currentColor !important;
+  color: #f87171 !important;
+}
+
+.v-checkbox .v-selection-control__input:has(input:focus-visible) {
+  outline: 2px solid #f87171 !important;
+  outline-offset: 2px;
 }
 
 .v-field {
