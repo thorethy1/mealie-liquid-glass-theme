@@ -794,3 +794,18 @@ hr {
 }
 
 /* tweak */
+
+/* The cookbook title and description are page content, not a card. */
+.v-container.my-0 > .v-sheet.d-flex.flex-column.w-100.pa-0.ma-0:has(> div > .v-toolbar-title) {
+  margin-bottom: 16px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible;
+}
+.v-container.my-0 > .v-sheet.d-flex.flex-column.w-100.pa-0.ma-0:has(> div > .v-toolbar-title)::before {
+  display: none;
+}
