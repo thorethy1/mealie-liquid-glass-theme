@@ -794,3 +794,180 @@ hr {
 }
 
 /* tweak */
+
+/* Vuetify card overlays must not take up space in the card layout. */
+.v-card > .v-card__overlay,
+.v-card > .v-card__underlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Put the recipe information over the full-width hero image. */
+.d-flex.justify-end.flex-wrap.align-stretch:has(> .v-img):has(> .v-card.v-card--flat.justify-center.align-center) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(180px, min(34vw, 400px)) auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.d-flex.justify-end.flex-wrap.align-stretch:has(> .v-card.v-card--flat.justify-center.align-center) > .v-img {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  z-index: 0;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  align-self: stretch !important;
+  border-radius: 0 !important;
+}
+.d-flex.justify-end.flex-wrap.align-stretch:has(> .v-img) > .v-card.v-card--flat.justify-center.align-center {
+  grid-column: 1;
+  grid-row: 2;
+  z-index: 1;
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: linear-gradient(180deg, rgba(9, 9, 11, 0.72), rgba(9, 9, 11, 0.86)) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+.d-flex.justify-end.flex-wrap.align-stretch:has(> .v-img) > .v-card.v-card--flat.justify-center.align-center::before {
+  display: none;
+}
+.d-flex.justify-end.flex-wrap.align-stretch:not(:has(> .v-img)) > .v-card.v-card--flat.justify-center.align-center {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.d-flex.justify-end.flex-wrap.align-stretch:not(:has(> .v-img)) > .v-card.v-card--flat.justify-center.align-center::before {
+  display: none;
+}
+
+/* Recipe content uses simple sections instead of nested glass cards. */
+.v-container.px-0 > .v-card.d-print-none {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible;
+}
+.v-container.px-0 > .v-card.d-print-none::before {
+  display: none;
+}
+.v-list-item.ingredient-list-item {
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 4px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.v-list-item.ingredient-list-item:hover {
+  background: rgba(248, 113, 113, 0.06) !important;
+}
+.v-list-item.ingredient-list-item:focus-within {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-list {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-list .v-list-item {
+  min-height: 32px !important;
+  margin: 0 !important;
+  padding: 4px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-col > div:has(> .v-card > .v-card-text .v-chip.v-chip--label) > .v-card,
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-col > div:has(> .v-card > .v-card-text .v-chip.v-chip--label) > div > .v-card {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-col > div:has(> .v-card > .v-card-text .v-chip.v-chip--label) > .v-card::before,
+.v-container.px-0 > .v-card.d-print-none > .v-card-text .v-col > div:has(> .v-card > .v-card-text .v-chip.v-chip--label) > div > .v-card::before {
+  display: none;
+}
+
+/* Keep complete instructions visible and distinguish steps with dividers. */
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title) {
+  height: auto !important;
+  max-height: none !important;
+  margin-block: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible !important;
+}
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title)::before {
+  display: none;
+}
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title):hover {
+  background: rgba(248, 113, 113, 0.06) !important;
+}
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title):focus-visible {
+  outline: 2px solid #f87171 !important;
+  outline-offset: -2px;
+}
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title) .recipe-step-title,
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title) .v-card-text.markdown,
+section:has(.recipe-step-title) .list-group-item > .v-card:has(> .recipe-step-title) .v-card-text.markdown p {
+  display: block !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  white-space: normal !important;
+}
+
+/* RecipeChips is shared by tags, categories, and tools. */
+.v-chip.v-chip--label.mr-1.mt-1 {
+  height: auto !important;
+  max-width: 100%;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.v-chip.v-chip--label.mr-1.mt-1 > .v-chip__underlay,
+.v-chip.v-chip--label.mr-1.mt-1 > .v-chip__overlay {
+  display: none;
+}
+.v-chip.v-chip--label.mr-1.mt-1 .v-chip__content {
+  color: var(--fg-muted) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+}
+.v-chip.v-chip--label.mr-1.mt-1:hover .v-chip__content,
+.v-chip.v-chip--label.mr-1.mt-1:focus-visible .v-chip__content {
+  color: var(--fg-strong) !important;
+  text-decoration: underline;
+}
